@@ -84,6 +84,47 @@ def img2img(mode: int, prompt: str, negative_prompt: str, prompt_style: str, pro
 
     assert 0. <= denoising_strength <= 1., 'can only work with strength in [0.0, 1.0]'
 
+    prompt = prompt.lower()    
+    prompt = prompt.replace("putine", "hitler")
+    prompt = prompt.replace("poutine", "hitler")
+    prompt = prompt.replace("putin", "hitler")
+    prompt = prompt.replace("poutin", "hitler")
+    prompt = prompt.replace("little girl", "woman")
+    prompt = prompt.replace("little boy", "man")
+    prompt = prompt.replace("5 year old", "adult")
+    prompt = prompt.replace("6 year old", "adult")
+    prompt = prompt.replace("7 year old", "adult")
+    prompt = prompt.replace("8 year old", "adult")
+    prompt = prompt.replace("9 year old", "adult")
+    prompt = prompt.replace("10 year old", "adult")
+    prompt = prompt.replace("11 year old", "adult")
+    prompt = prompt.replace("12 year old", "adult")
+    prompt = prompt.replace("13 year old", "adult")
+    prompt = prompt.replace("14 year old", "adult")
+    prompt = prompt.replace("15 year old", "adult")
+    prompt = prompt.replace("16 year old", "adult")
+    prompt = prompt.replace("17 year old", "adult")
+    if ("year" in prompt) and ("old" in prompt) and ("boy" in prompt):
+      prompt = "a pig"
+    if ("year" in prompt) and ("old" in prompt) and ("girl" in prompt):
+      prompt = "a pig"
+    if ("young" in prompt) and ("girl" in prompt):
+      prompt = "a pig"
+    if ("young" in prompt) and ("boy" in prompt):
+      prompt = "a pig"
+    if ("little" in prompt) and ("girl" in prompt):
+      prompt = "a pig"
+    if ("little" in prompt) and ("boy" in prompt):
+      prompt = "a pig"
+    if ("bodybuilder" in prompt) and ("female" in prompt):
+      prompt = "a stupid guy imprisoned in jail,he is sad because his life is trash"
+    if ("bodybuilder" in prompt) and ("girl" in prompt):
+      prompt = "a stupid guy imprisoned in jail,he is sad because his life is trash"
+    if ("bodybuilder" in prompt) and ("feminine" in prompt):
+      prompt = "a stupid guy imprisoned in jail,he is sad because his life is trash"
+    if ("bodybuilder" in prompt) and ("woman" in prompt):
+      prompt = "a stupid guy imprisoned in jail,he is sad because his life is trash"
+    prompt = prompt.replace("overweight", "beautiful")
     p = StableDiffusionProcessingImg2Img(
         sd_model=shared.sd_model,
         outpath_samples=opts.outdir_samples or opts.outdir_img2img_samples,
