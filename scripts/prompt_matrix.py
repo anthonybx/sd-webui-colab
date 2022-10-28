@@ -67,12 +67,12 @@ class Script(scripts.Script):
 
             all_prompts.append(", ".join(selected_prompts))
 
-        p.n_iter = math.ceil(len(all_prompts) / p.batch_size)
+        p.n_iter = 1
         p.do_not_save_grid = True
 
         print(f"Prompt matrix will create {len(all_prompts)} images using a total of {p.n_iter} batches.")
 
-        p.prompt = all_prompts
+        p.prompt = p.prompt
         p.seed = [p.seed for _ in all_prompts]
         p.prompt_for_display = original_prompt
         processed = process_images(p)
