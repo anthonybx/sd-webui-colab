@@ -9,10 +9,19 @@ from modules.ui import plaintext_to_html
 
 def txt2img(prompt: str, negative_prompt: str, prompt_style: str, prompt_style2: str, steps: int, sampler_index: int, restore_faces: bool, tiling: bool, n_iter: int, batch_size: int, cfg_scale: float, seed: int, subseed: int, subseed_strength: float, seed_resize_from_h: int, seed_resize_from_w: int, seed_enable_extras: bool, height: int, width: int, enable_hr: bool, denoising_strength: float, firstphase_width: int, firstphase_height: int, *args):
     prompt = prompt.lower()    
-    prompt = prompt.replace("putine", "hitler")
-    prompt = prompt.replace("poutine", "hitler")
-    prompt = prompt.replace("putin", "hitler")
-    prompt = prompt.replace("poutin", "hitler")
+    prompt = prompt.replace("ramzan kadyrov", "man")
+    prompt = prompt.replace("ramzan", "man")
+    prompt = prompt.replace("kadyrov", "man")
+    prompt = prompt.replace("missile", "flower")
+    prompt = prompt.replace("nuclear", "flower")
+    prompt = prompt.replace("bomb", "flower")
+    prompt = prompt.replace("nuke", "flower")
+    prompt = prompt.replace("war", "love")
+    prompt = prompt.replace("путин", "dictator")
+    prompt = prompt.replace("putine", "dictator")
+    prompt = prompt.replace("poutine", "dictator")
+    prompt = prompt.replace("putin", "dictator")
+    prompt = prompt.replace("poutin", "dictator")
     prompt = prompt.replace("little girl", "woman")
     prompt = prompt.replace("little boy", "man")
     prompt = prompt.replace("5 year old", "adult")
@@ -40,6 +49,47 @@ def txt2img(prompt: str, negative_prompt: str, prompt_style: str, prompt_style2:
       prompt = "a pig"
     if ("little" in prompt) and ("boy" in prompt):
       prompt = "a pig"
+    if ("young" in prompt) and ("loli" in prompt):
+      prompt = "a pig"
+    if ("nude" in prompt) and ("young" in prompt):
+      prompt = "a pig"
+    if ("naked" in prompt) and ("young" in prompt):
+      prompt = "a pig"
+    if ("slutty" in prompt) and ("young" in prompt):
+      prompt = "a pig"
+    if ("chubby" in prompt):
+      prompt = "a pig"
+    if ("fat" in prompt) and ("woman" in prompt):
+      prompt = "a pig"
+    if ("fat" in prompt) and ("girl" in prompt):
+      prompt = "a pig"
+    if ("obese" in prompt):
+      prompt = "a pig"
+    if ("loli" in prompt):
+      prompt = "a pig"
+    if ("plus-size" in prompt):
+      prompt = "a pig"
+    if ("dragoness" in prompt):
+      prompt = "a pig"
+    if ("bbw" in prompt):
+      prompt = "a pig"
+    if ("chibi" in prompt) and ("girl" in prompt):
+      prompt = "a pig"
+    if ("fat" in prompt) and ("overweight" in prompt):
+      prompt = "a pig"
+    if ("teen" in prompt) and ("boy" in prompt):
+      prompt = "a pig"
+    if ("teen" in prompt) and ("girl" in prompt):
+      prompt = "a pig"
+    if ("bodybuilder" in prompt) and ("female" in prompt):
+      prompt = "a stupid guy imprisoned in jail,he is sad because his life is trash"
+    if ("bodybuilder" in prompt) and ("girl" in prompt):
+      prompt = "a stupid guy imprisoned in jail,he is sad because his life is trash"
+    if ("bodybuilder" in prompt) and ("feminine" in prompt):
+      prompt = "a stupid guy imprisoned in jail,he is sad because his life is trash"
+    if ("bodybuilder" in prompt) and ("woman" in prompt):
+      prompt = "a stupid guy imprisoned in jail,he is sad because his life is trash"
+    prompt = prompt.replace("overweight", "beautiful")
     p = StableDiffusionProcessingTxt2Img(
         sd_model=shared.sd_model,
         outpath_samples=opts.outdir_samples or opts.outdir_txt2img_samples,
