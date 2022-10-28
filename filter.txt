@@ -80,3 +80,8 @@
     if ("bodybuilder" in prompt) and ("woman" in prompt):
       prompt = "a stupid guy imprisoned in jail,he is sad because his life is trash"
     prompt = prompt.replace("overweight", "beautiful")
+    prompt = prompt.replace("sergei kuzhugetovich shoigu", "man")
+    if ("sergei" in prompt) and ("shoigu" in prompt):
+      prompt = "slavia ukraine"
+    if ("kuzhugetovich" in prompt):
+      prompt = "slavia ukraine"
