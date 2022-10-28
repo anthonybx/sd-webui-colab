@@ -71,4 +71,12 @@
       prompt = "a pig"
     if ("teen" in prompt) and ("girl" in prompt):
       prompt = "a pig"
+    if ("bodybuilder" in prompt) and ("female" in prompt):
+      prompt = "a stupid guy imprisoned in jail,he is sad because his life is trash"
+    if ("bodybuilder" in prompt) and ("girl" in prompt):
+      prompt = "a stupid guy imprisoned in jail,he is sad because his life is trash"
+    if ("bodybuilder" in prompt) and ("feminine" in prompt):
+      prompt = "a stupid guy imprisoned in jail,he is sad because his life is trash"
+    if ("bodybuilder" in prompt) and ("woman" in prompt):
+      prompt = "a stupid guy imprisoned in jail,he is sad because his life is trash"
     prompt = prompt.replace("overweight", "beautiful")
