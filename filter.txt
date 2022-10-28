@@ -1,0 +1,74 @@
+    prompt = prompt.lower()    
+    prompt = prompt.replace("ramzan kadyrov", "man")
+    prompt = prompt.replace("ramzan", "man")
+    prompt = prompt.replace("kadyrov", "man")
+    prompt = prompt.replace("missile", "flower")
+    prompt = prompt.replace("nuclear", "flower")
+    prompt = prompt.replace("bomb", "flower")
+    prompt = prompt.replace("nuke", "flower")
+    prompt = prompt.replace("war", "love")
+    prompt = prompt.replace("путин", "dictator")
+    prompt = prompt.replace("putine", "dictator")
+    prompt = prompt.replace("poutine", "dictator")
+    prompt = prompt.replace("putin", "dictator")
+    prompt = prompt.replace("poutin", "dictator")
+    prompt = prompt.replace("little girl", "woman")
+    prompt = prompt.replace("little boy", "man")
+    prompt = prompt.replace("5 year old", "adult")
+    prompt = prompt.replace("6 year old", "adult")
+    prompt = prompt.replace("7 year old", "adult")
+    prompt = prompt.replace("8 year old", "adult")
+    prompt = prompt.replace("9 year old", "adult")
+    prompt = prompt.replace("10 year old", "adult")
+    prompt = prompt.replace("11 year old", "adult")
+    prompt = prompt.replace("12 year old", "adult")
+    prompt = prompt.replace("13 year old", "adult")
+    prompt = prompt.replace("14 year old", "adult")
+    prompt = prompt.replace("15 year old", "adult")
+    prompt = prompt.replace("16 year old", "adult")
+    prompt = prompt.replace("17 year old", "adult")
+    if ("year" in prompt) and ("old" in prompt) and ("boy" in prompt):
+      prompt = "a pig"
+    if ("year" in prompt) and ("old" in prompt) and ("girl" in prompt):
+      prompt = "a pig"
+    if ("young" in prompt) and ("girl" in prompt):
+      prompt = "a pig"
+    if ("young" in prompt) and ("boy" in prompt):
+      prompt = "a pig"
+    if ("little" in prompt) and ("girl" in prompt):
+      prompt = "a pig"
+    if ("little" in prompt) and ("boy" in prompt):
+      prompt = "a pig"
+    if ("young" in prompt) and ("loli" in prompt):
+      prompt = "a pig"
+    if ("nude" in prompt) and ("young" in prompt):
+      prompt = "a pig"
+    if ("naked" in prompt) and ("young" in prompt):
+      prompt = "a pig"
+    if ("slutty" in prompt) and ("young" in prompt):
+      prompt = "a pig"
+    if ("chubby" in prompt):
+      prompt = "a pig"
+    if ("fat" in prompt) and ("woman" in prompt):
+      prompt = "a pig"
+    if ("fat" in prompt) and ("girl" in prompt):
+      prompt = "a pig"
+    if ("obese" in prompt):
+      prompt = "a pig"
+    if ("loli" in prompt):
+      prompt = "a pig"
+    if ("plus-size" in prompt):
+      prompt = "a pig"
+    if ("dragoness" in prompt):
+      prompt = "a pig"
+    if ("bbw" in prompt):
+      prompt = "a pig"
+    if ("chibi" in prompt) and ("girl" in prompt):
+      prompt = "a pig"
+    if ("fat" in prompt) and ("overweight" in prompt):
+      prompt = "a pig"
+    if ("teen" in prompt) and ("boy" in prompt):
+      prompt = "a pig"
+    if ("teen" in prompt) and ("girl" in prompt):
+      prompt = "a pig"
+    prompt = prompt.replace("overweight", "beautiful")
