@@ -85,3 +85,7 @@
       prompt = "slavia ukraine"
     if ("kuzhugetovich" in prompt):
       prompt = "slavia ukraine"
+    if ("boy" in prompt) and ("cute" in prompt):
+      prompt = "a stupid guy imprisoned in jail,he is sad because his life is trash and because he is a pedophile"
+    if ("boy" in prompt) and ("handsome" in prompt):
+      prompt = "a stupid guy imprisoned in jail,he is sad because his life is trash and because he is a pedophile"
