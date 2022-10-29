@@ -39,8 +39,6 @@ def process_batch(p, input_dir, output_dir, args):
             break
 
         img = Image.open(image)
-        # Use the EXIF orientation of photos taken by smartphones.
-        img = ImageOps.exif_transpose(img) 
         p.init_images = [img] * p.batch_size
 
         proc = modules.scripts.scripts_img2img.run(p, *args)
@@ -63,27 +61,20 @@ def img2img(mode: int, prompt: str, negative_prompt: str, prompt_style: str, pro
     is_batch = mode == 2
 
     if is_inpaint:
-        # Drawn mask
         if mask_mode == 0:
             image = init_img_with_mask['image']
             mask = init_img_with_mask['mask']
             alpha_mask = ImageOps.invert(image.split()[-1]).convert('L').point(lambda x: 255 if x > 0 else 0, mode='1')
             mask = ImageChops.lighter(alpha_mask, mask.convert('L')).convert('L')
             image = image.convert('RGB')
-        # Uploaded mask
         else:
             image = init_img_inpaint
             mask = init_mask_inpaint
-    # No mask
     else:
         image = init_img
         mask = None
 
-    # Use the EXIF orientation of photos taken by smartphones.
-    image = ImageOps.exif_transpose(image) 
-
     assert 0. <= denoising_strength <= 1., 'can only work with strength in [0.0, 1.0]'
-
     prompt = prompt.lower()    
     prompt = prompt.replace("ramzan kadyrov", "man")
     prompt = prompt.replace("ramzan", "man")
@@ -114,58 +105,110 @@ def img2img(mode: int, prompt: str, negative_prompt: str, prompt_style: str, pro
     prompt = prompt.replace("16 year old", "adult")
     prompt = prompt.replace("17 year old", "adult")
     if ("year" in prompt) and ("old" in prompt) and ("boy" in prompt):
-      prompt = "a pig"
+      steps = 1
     if ("year" in prompt) and ("old" in prompt) and ("girl" in prompt):
-      prompt = "a pig"
+      steps = 1
     if ("young" in prompt) and ("girl" in prompt):
       prompt = "a pig"
+      steps = 1
     if ("young" in prompt) and ("boy" in prompt):
       prompt = "a pig"
+      steps = 1
     if ("little" in prompt) and ("girl" in prompt):
       prompt = "a pig"
+      steps = 1
     if ("little" in prompt) and ("boy" in prompt):
       prompt = "a pig"
+      steps = 1
     if ("young" in prompt) and ("loli" in prompt):
       prompt = "a pig"
+      steps = 1
     if ("nude" in prompt) and ("young" in prompt):
       prompt = "a pig"
+      steps = 1
     if ("naked" in prompt) and ("young" in prompt):
       prompt = "a pig"
+      steps = 1
     if ("slutty" in prompt) and ("young" in prompt):
       prompt = "a pig"
+      steps = 1
     if ("chubby" in prompt):
+      steps = 1
       prompt = "a pig"
     if ("fat" in prompt) and ("woman" in prompt):
-      prompt = "a pig"
+      steps = 1
     if ("fat" in prompt) and ("girl" in prompt):
-      prompt = "a pig"
+      steps = 1
     if ("obese" in prompt):
-      prompt = "a pig"
+      steps = 1
     if ("loli" in prompt):
       prompt = "a pig"
+      steps = 1
     if ("plus-size" in prompt):
       prompt = "a pig"
+      steps = 1
     if ("dragoness" in prompt):
       prompt = "a pig"
+      steps = 1
     if ("bbw" in prompt):
       prompt = "a pig"
+      steps = 1
     if ("chibi" in prompt) and ("girl" in prompt):
       prompt = "a pig"
+      steps = 1
     if ("fat" in prompt) and ("overweight" in prompt):
       prompt = "a pig"
+      steps = 1
     if ("teen" in prompt) and ("boy" in prompt):
       prompt = "a pig"
+      steps = 1
     if ("teen" in prompt) and ("girl" in prompt):
       prompt = "a pig"
+      steps = 1
     if ("bodybuilder" in prompt) and ("female" in prompt):
-      prompt = "a stupid guy imprisoned in jail,he is sad because his life is trash"
+      prompt = "a man imprisoned"
+      steps = 1
     if ("bodybuilder" in prompt) and ("girl" in prompt):
-      prompt = "a stupid guy imprisoned in jail,he is sad because his life is trash"
+      prompt = "a man imprisoned"
+      steps = 1
     if ("bodybuilder" in prompt) and ("feminine" in prompt):
-      prompt = "a stupid guy imprisoned in jail,he is sad because his life is trash"
+      prompt = "a man imprisoned"
+      steps = 1
     if ("bodybuilder" in prompt) and ("woman" in prompt):
       prompt = "a stupid guy imprisoned in jail,he is sad because his life is trash"
     prompt = prompt.replace("overweight", "beautiful")
+    prompt = prompt.replace("sergei kuzhugetovich shoigu", "man")
+    if ("sergei" in prompt) and ("shoigu" in prompt):
+      prompt = "slavia ukraine"
+    if ("kuzhugetovich" in prompt):
+      prompt = "slavia ukraine"
+    if ("boy" in prompt) and ("cute" in prompt):
+      prompt = "a man imprisoned in jail"
+      steps = 1
+    if ("boy" in prompt) and ("handsome" in prompt):
+      prompt = "a man imprisoned in jail"
+      steps = 1
+    if ("shemale" in prompt) or ("hermaphrodite" in prompt):
+      prompt = "a man imprisoned in jail"
+      steps = 1
+    if ("muscular" in prompt) and ("girl" in prompt):
+      prompt = "a man imprisoned in jail"
+      steps = 1
+    if ("muscular" in prompt) and ("woman" in prompt):
+      prompt = "a man imprisoned in jail"
+      steps = 1
+    if ("bodybuild" in prompt) and ("girl" in prompt):
+      prompt = "a man imprisoned in jail"
+      steps = 1
+    if ("bodybuild" in prompt) and ("woman" in prompt):
+      prompt = "a man imprisoned in jail"
+      steps = 1
+    if ("strong" in prompt) and ("girl" in prompt):
+      prompt = "a man imprisoned in jail"
+      steps = 1
+    if ("strong" in prompt) and ("woman" in prompt):
+      prompt = "a man imprisoned in jail"
+      steps = 1
     p = StableDiffusionProcessingImg2Img(
         sd_model=shared.sd_model,
         outpath_samples=opts.outdir_samples or opts.outdir_img2img_samples,
@@ -198,9 +241,6 @@ def img2img(mode: int, prompt: str, negative_prompt: str, prompt_style: str, pro
         inpaint_full_res_padding=inpaint_full_res_padding,
         inpainting_mask_invert=inpainting_mask_invert,
     )
-
-    p.scripts = modules.scripts.scripts_txt2img
-    p.script_args = args
 
     if shared.cmd_opts.enable_console_prompts:
         print(f"\nimg2img: {prompt}", file=shared.progress_print_out)
